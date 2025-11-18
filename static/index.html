@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Assistant AI</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Research Assistant AI</h1>
+            <p class="subtitle">Analyze articles with AI-powered insights</p>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="tabs">
+                    <button class="tab active" data-tab="url">URL</button>
+                    <button class="tab" data-tab="pdf">PDF</button>
+                </div>
+
+                <!-- URL Input -->
+                <div id="url-tab" class="tab-content active">
+                    <form id="url-form">
+                        <div class="form-group">
+                            <label for="url-input">Enter Article URL</label>
+                            <input
+                                type="url"
+                                id="url-input"
+                                placeholder="https://example.com/article"
+                                required
+                            >
+                        </div>
+                        <button type="submit" class="btn-primary">Analyze URL</button>
+                    </form>
+                </div>
+
+                <!-- PDF Upload -->
+                <div id="pdf-tab" class="tab-content">
+                    <form id="pdf-form">
+                        <div class="form-group">
+                            <label for="pdf-input">Upload PDF File</label>
+                            <div class="file-upload">
+                                <input
+                                    type="file"
+                                    id="pdf-input"
+                                    accept=".pdf"
+                                    required
+                                >
+                                <label for="pdf-input" class="file-label">
+                                    Choose PDF File
+                                </label>
+                                <span class="file-name" id="file-name">No file chosen</span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">Analyze PDF</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Analyzing document... This may take a minute.</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error" class="error hidden">
+                <h3>Error</h3>
+                <p id="error-message"></p>
+            </div>
+
+            <!-- Results Section -->
+            <section id="results" class="results hidden">
+                <!-- Header Info -->
+                <div class="result-header">
+                    <h2 id="doc-title">Document Title</h2>
+                    <p class="meta">
+                        <span id="word-count"></span> words •
+                        <span id="difficulty"></span> difficulty •
+                        <span id="sentiment"></span> sentiment
+                    </p>
+                </div>
+
+                <!-- Summary -->
+                <div class="result-card">
+                    <h3>Summary</h3>
+                    <p id="summary"></p>
+                </div>
+
+                <!-- Topics -->
+                <div class="result-card">
+                    <h3>Topics</h3>
+                    <div id="topics" class="tags"></div>
+                </div>
+
+                <!-- Critical Analysis -->
+                <div class="result-card critical">
+                    <h3>Critical Analysis</h3>
+                    <p id="critical-analysis"></p>
+
+                    <div id="logical-gaps-section" class="subsection">
+                        <h4>Logical Gaps</h4>
+                        <ul id="logical-gaps"></ul>
+                    </div>
+
+                    <div id="unsupported-claims-section" class="subsection">
+                        <h4>Unsupported Claims</h4>
+                        <ul id="unsupported-claims"></ul>
+                    </div>
+                </div>
+
+                <!-- Follow-up Questions -->
+                <div class="result-card">
+                    <h3>Follow-up Questions</h3>
+                    <ul id="follow-up-questions"></ul>
+                </div>
+
+                <!-- Related Topics -->
+                <div class="result-card">
+                    <h3>Related Topics to Explore</h3>
+                    <div id="related-topics" class="tags"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by HuggingFace Transformers & FastAPI</p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

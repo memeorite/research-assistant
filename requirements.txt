@@ -1,0 +1,30 @@
+# Web Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+
+# ML/AI
+transformers==4.37.0
+torch==2.1.2
+sentencepiece==0.1.99
+accelerate==0.26.1
+
+# Document Processing
+beautifulsoup4==4.12.3
+requests==2.31.0
+PyPDF2==3.0.1
+pypdf==3.17.4
+newspaper3k==0.2.8
+lxml==5.1.0
+
+# Text Processing
+nltk==3.8.1
+
+# Utilities
+pydantic==2.5.3
+pydantic-settings==2.1.0
+python-dotenv==1.0.0
+
+# Testing
+pytest==7.4.4
+httpx==0.26.0
